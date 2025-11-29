@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,27 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  profile= null;
+  ok = false; 
+  constructor(private navCtrl: NavController) {}
+  ngOnInit() {
 
-  constructor() {}
+  
+  
+  }
+  ionViewWillEnter(){
+    if(localStorage.profile){
+      this.profile =  JSON.parse(localStorage.profile);
+      if(this.profile.access_token){
+        this.navCtrl.navigateRoot('check-in');
+       
+      }else {
+        this.ok = true; 
+      }
+    }else {
+      this.ok = true; 
+    }
+  }
+ 
 
 }

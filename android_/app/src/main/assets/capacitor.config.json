@@ -1,0 +1,6 @@
+{
+	"appId": "com.prosecatfi.app",
+	"appName": "ProPersonnel",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true" class="bg " >
+ 
+
+  <div id="container">
+    <ion-img src="../../assets/img/logo-white.png" class="logo-home"></ion-img>
+    
+      <ion-row >
+        <ion-col size="12" class=" ion-padding-horizontal">
+          <ion-item  class="input   ion-margin-top" style="margin-bottom: 5px;" lines="full"> 
+    
+          <ion-label position="floating"> <ion-icon slot="start" name="mail-outline"></ion-icon> Email</ion-label>
+          <ion-input  type="email" autocomplete="off"  [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item  class="input  "  style="margin-bottom: 5px;"  lines="full"> 
+    
+          <ion-label position="floating"><ion-icon slot="start" name="lock-closed-outline"></ion-icon> Contraseña</ion-label>
+          <ion-input type="password"  autocomplete="off" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        </ion-col>
+      </ion-row>
+      <p class="font-white" [routerLink]="['/recovery']" >¿Olvidaste tu Contraseña?</p>
+    
+
+    <ion-button   (click)="login()"   shape="round" color="light" style="color: #23aa3e  !important; --color: #23aa3e !important" class=" ripple-parent ion-margin"  >
+    Iniciar sesión
+    <ion-ripple-effect></ion-ripple-effect>
+    </ion-button>
+   
+    <p class="font-white" [routerLink]="['/politica-privacidad']" >Políticas de  Privacidad</p>
+  </div>
+</ion-content>

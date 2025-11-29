@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true" class="bg">
+ 
+
+  <div id="container">
+    <ion-img src="../../assets/img/logo-white.png" class="logo-home"></ion-img>
+    <ion-text class="ion-padding ion-padding-horizontal"  >
+      <p class="ion-padding-horizontal">
+        Usaremos la localización de tu GPS para determinar la distancia entre la Empresa y Tu. Esto con el fin de poder marcar fichaje dentro del rango permitido por la Empresa. <b>Es necesario este permiso.</b>
+      </p>
+    </ion-text>
+    <ion-button (click)="checkGPSPermission()"    shape="round" color="primary" class="ion-activatable ripple-parent ion-margin ion-text-capitalize"  >
+    Dar permisos
+    <ion-ripple-effect></ion-ripple-effect>
+    </ion-button>
+   
+    <p class="font-white"  [routerLink]="['/politica-privacidad']">Políticas de  Privacidad</p>
+  </div>
+</ion-content>

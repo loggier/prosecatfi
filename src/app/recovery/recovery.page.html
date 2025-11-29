@@ -1,0 +1,38 @@
+ 
+ <ion-header  >
+  <ion-toolbar class="bg">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content  [fullscreen]="true" class="bg">
+
+  <ion-row style="height: 70vh; position: absolute; bottom: 0px; width: 100%; padding: 40px; ">
+    <ion-col size="12">
+      <h4 style="padding: 0px; margin: 0px; color: #23aa3e">OLVIDASTE TU</h4>
+      <H2 style="padding: 0px; margin: 0px; color: #23aa3e"><b>CONTRASEÑA</b></H2>
+      <small style="color: #c2c2c2 ;">Ingrese email donde quiere recibir acceso para restablecer tu contraseña.</small>
+      <div class="recovery-pass">
+
+        
+       
+          <ion-label  >  <p style="color:#fff ;"> INGRESE EMAIL</p></ion-label>
+          <ion-icon  name="mail-outline" style="color:#fff ;     margin-top: 11px;"></ion-icon>
+          <ion-input type="email" placeholder="Email" style="width: 90%; float:right ; border-bottom:1px solid #fff;" ></ion-input>
+    </div>
+    <ion-item style="--background:none">
+      <ion-button     shape="round" color="light" style="color: #23aa3e  !important; --color: #23aa3e !important; margin-left: auto;
+      margin-right: auto;  height: 35px;
+    width: 100px;" class=" ripple-parent ion-margin"  >
+        REINICIAR
+        <ion-ripple-effect></ion-ripple-effect>
+        </ion-button>
+    </ion-item>
+    
+    </ion-col>
+   
+  
+  </ion-row>
+
+</ion-content>

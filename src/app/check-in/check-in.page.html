@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-img src="../../assets/img/logo-white.png" class="logo-head"></ion-img>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+ 
+  <ion-row style="height: 20vh;" class="top">
+    <ion-col size="12"  > 
+     <ion-item  lines="none" style="    --background: none;">
+      <ion-avatar slot="start"  style="    border: 2px solid #24aa3e;">
+        
+
+        <img *ngIf="data_user?.is_empleado?.foto" src="{{server+data_user?.is_empleado?.foto}}"/>
+        <img *ngIf="!data_user?.is_empleado?.foto" src="../../assets/img/no-user.png"/>
+      </ion-avatar>
+      <ion-label>
+        <p style="color:   #24aa3e;">{{data_user?.name}}</p>
+        
+        <p>
+          {{data_user?.is_empleado?.documento}}
+           
+        </p>
+      </ion-label>
+      <ion-label slot="end">
+        <ion-icon class="header-icon" (click)="politica()" name="information-circle" title="Información"></ion-icon>
+        <!-- Mostrar enlace a empleados solo si es supervisor -->
+        <ion-icon *ngIf="isSupervisor" class="header-icon" (click)="goToEmpleados()" name="people" title="Empleados"></ion-icon>
+        <ion-icon class="header-icon" (click)="logout()" name="log-out" title="Salir"></ion-icon>
+      </ion-label>
+     </ion-item>
+    
+     
+    </ion-col>
+    <div class="title_bg">
+      <p style="border: 0px;
+      padding: 0px;
+      margin: 8px;
+      float: right; color:#fff; font-weight: bold; " >FICHAJE</p>
+    </div><div style="width: 50%;"></div>
+   
+    </ion-row>  
+    <ion-row>
+      <ion-col size="12">
+        <ion-item id="open-modal" (click)="setOpen(true)">
+          <ion-label style="text-align: center ; color: #24aa3e;">{{date_format}}</ion-label>
+         </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-item>
+      <ion-label>Vehículo</ion-label>
+      <ion-select    placeholder="Seleccione Vehículo" cancel-text="Cancelar" [(ngModel)]="vehiculo_select">
+        <ion-select-option *ngFor="let item of data_vehiculos?.Data " value="{{item.id_vehiculo}}">{{item.nombre}}</ion-select-option>
+        
+      </ion-select>
+    </ion-item>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of asistencias?.Data ">
+        <ion-card class="card"> 
+          <ion-row>
+           
+        
+           <ion-col size="4">
+            <div class="img-build">
+              <ion-img src="../../assets/icon/building-svgrepo-com.svg" style="color: #fff; padding: 12px;"></ion-img>
+            </div>
+           
+           </ion-col>
+           <ion-col size="8">
+            <p>{{item.tipo}}</p>
+            <p>{{item.hora}}</p>
+          </ion-col>
+        </ion-row>
+        
+        </ion-card>
+      </ion-col>
+      
+      
+    </ion-row>
+    
+    
+     
+ 
+
+ 
+ 
+  
+  <ion-row style="height: 50vh; width: 100%;">
+    <ion-col size="12">
+
+      <div  *ngIf="busqueda==true" style="text-align: center;">
+        <h4>
+          <b>Sin Fichaje Realizados</b>
+        </h4>
+        <p>
+          Desliza hacia abajo si quiere actualizar...
+        </p>
+      </div>
+ 
+      <div class="circle" *ngIf="busqueda==false">
+        
+        <ion-row>
+       
+          <ion-col size="12" >
+            <ion-button (click)="confirm()"  shape="round" style="    width: 25vh;
+            height: 25vh;
+            margin: 0px;
+            padding: 0px;
+            --border-radius: 100%;
+            --background: #646464;
+            --border-width: 3px; " fill="outline">
+             <ion-row>
+              <ion-col size="3">
+                <h1 style="margin-top: 35px;">
+                <ion-icon *ngIf="tipo=='Entrada'" name="cloud-upload" style="font-size: 30px; color: #31ae01;"></ion-icon>
+                <ion-icon *ngIf="tipo!='Entrada'" name="cloud-download" style="font-size: 30px; color: #31ae01;"></ion-icon>
+              </h1>
+              </ion-col>
+              <ion-col size="9" style="text-align: center; text-transform: capitalize; color: #ffffff;">
+                <h1 *ngIf="tipo=='Entrada'">
+                  Marcar <br>Entrada
+                </h1>
+                <h1 *ngIf="tipo!='Entrada'">
+                  Marcar <br>Salida
+                </h1>
+              </ion-col>
+             </ion-row>
+              <ion-ripple-effect></ion-ripple-effect>
+            </ion-button>
+            
+          </ion-col>
+        </ion-row>
+      </div>
+      <p style="font-weight:bolder; text-align: center; ;">Hora Actual: <span style="font-weight:normal"> {{time}}</span></p>
+    </ion-col>
+  </ion-row>
+ 
+
+</ion-content>
+<ion-modal  [isOpen]="isModalOpen" >
+  <ng-template>
+    
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime display-format="DD/MM/YYYY" presentation="date" [(ngModel)]="date" [max]="max_date"></ion-datetime>
+        </ion-item>
+      </ion-item>
+      <ion-toolbar>
+        <ion-buttons collapse="true" slot="end" (click)="setOpen(false)">
+          <ion-button>OK</ion-button>
+        </ion-buttons>
+        
+      </ion-toolbar>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+ 

@@ -1,20 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="bg" *ngIf="ok">
+ 
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-img src="../../assets/img/logo-white.png" class="logo-home"></ion-img>
+    <ion-button    [routerLink]="['/permisos']"   shape="round" color="primary" class="ion-activatable ripple-parent ion-margin"  >
+    Empezar
+    <ion-ripple-effect></ion-ripple-effect>
+    </ion-button>
+   
+    <p class="font-white" [routerLink]="['/politica-privacidad']" >Políticas de  Privacidad</p>
   </div>
 </ion-content>

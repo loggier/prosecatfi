@@ -1,0 +1,127 @@
+.empleados-container {
+  padding: 16px;
+}
+.employee-card {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+.card-row {
+  align-items: center;
+}
+.avatar-wrap img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+.emp-name {
+  margin: 0;
+  font-weight: 700;
+}
+.emp-role {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+.action-col {
+  display: flex;
+  justify-content: center;
+}
+.not-supervisor {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}
+
+/* New styles for big list look */
+.list-wrap {
+  padding: 16px 8px 40px 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.employee-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(18, 18, 18, 0.06);
+}
+.card-inner {
+  display: flex;
+  align-items: center;
+  padding: 18px 14px;
+}
+.avatar img, .avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  flex: 0 0 78px;
+  margin-right: 18px;
+}
+.avatar img { object-fit: cover; }
+.info {
+  flex: 1 1 auto;
+}
+.name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #444;
+  text-transform: uppercase;
+}
+.role {
+  font-size: 13px;
+  color: #999;
+  margin-top: 4px;
+}
+.action {
+  flex: 0 0 120px;
+  display: flex;
+  justify-content: flex-end;
+}
+.register-btn {
+  --background: #31ae01;
+  --background-activated: #289301;
+  --color: #fff;
+  --border-radius: 10px 0 0 10px;
+  height: 48px;
+  padding: 0 18px;
+  font-weight: 700;
+}
+
+/* Header like check-in */
+.logo-head {
+  height: 80px;
+  padding: 10px;
+}
+ion-header {
+  --background: #242424;
+  background: #242424;
+}
+
+/* Responsive: 2 columnas en tablet/desktop */
+@media (min-width: 768px) {
+  .list-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  .employee-card {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* mantener 2 columnas pero aumentar gap */
+  .list-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    padding: 24px;
+  }
+}
+
